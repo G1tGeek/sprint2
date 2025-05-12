@@ -16,8 +16,8 @@
 3. [Pre-requisites](#pre-requisites)
 4. [Steps to Set up Branch Notification](#steps-to-set-up-branch-notification)
 5. [Conclusion](#conclusion)
-6. [References](#references ) 
-7. [Contact Information ](#contact-information )
+6. [Contact](#contact)
+7. [References](#references )
    
 
      
