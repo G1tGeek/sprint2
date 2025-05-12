@@ -22,65 +22,64 @@
 
      
 # Introduction 
-This document provides a clear guide for setting up notifications for branch events (create, delete, (PR)merge) in GitHub. By following these steps, users can stay informed about branch changes in their repositories. This helps improve team collaboration and keeps everyone updated on project progress.
+This document offers a straightforward guide to configuring notifications for branch events—such as creation, deletion, and pull request merges—on GitHub. Implementing these steps ensures that users remain informed about changes to branches, enhancing team collaboration and keeping all stakeholders aligned with the project's progress.
 
 
 # Workflow
 
-![Untitled Diagram drawio (10)](https://github.com/user-attachments/assets/5bd94634-dd81-41e6-a01f-d25ab1bce438)
-
+![image](https://github.com/user-attachments/assets/8b1b3e25-e6df-4501-abc4-95ae7970dffe)
 
 ## Pre-requisites
 - A GitHub account.
-- Access to the repository for which you want to receive notifications.
+- Access to the GitHub repository for which you want to receive notifications.
 
 ## Steps to Set up Branch Notification
 
-### 1. **Sign in to GitHub**: Go to [GitHub](https://github.com) and log in to your account.
+### 1. *Sign in to GitHub*: Go to [GitHub](https://github.com) and log in to your account.
 
 
 
 
-### 2. Create a repository for which you want to configure notifications for Branch(Create,Delete& Merge(PR)).
+### 2. *Create a repository for which you want to configure notifications for Branch(Create,Delete& Merge(PR)).*
 
 
 
 
-### 3. Now, click on the repository you created and navigate to the Settings tab at the top.
+### 3. *Now, click on the repository you created and navigate to the Settings tab at the top.*
 
 
 
 
-### 4. Generate an App Password for Gmail: If you are using Gmail, you'll need to generate an App Password for your Google account:
+### 4. *Generate an App Password for Gmail: If you are using Gmail, you'll need to generate an App Password for your Google account:*
 
-**Go to your Google Account.**
+*Go to your Google Account.*
 
-**Navigate to Security -> Signing in to Google -> App Passwords.**
+`Navigate to Security -> Signing in to Google -> App Passwords.`
 
-**Choose Mail and select your device, then generate a password and copy it.**
+`Choose Mail and select your device, then generate a password and copy it.`
 
 
 ### 5. Add Gmail Credentials to GitHub Secrets:
 
-**Go to your GitHub repository.** **Click on Settings -> Secrets -> Actions -> New repository secret,**Add two secrets:**
+*Go to your GitHub repository.* `Click on Settings -> Secrets` -> `Actions -> New repository secret,Add two secrets:`
 
-**EMAIL_USERNAME: Your Gmail address (e.g., your-email@gmail.com).**
+`EMAIL_USERNAME: Your Gmail address (e.g., your-email@gmail.com).`
 
-**EMAIL_PASSWORD: The App Password you generated earlier from Gmail.**
+`EMAIL_PASSWORD: The App Password you generated earlier from Gmail.`
 
 
 
 ### 6. Set up GitHub Action Workflow:
 
-**Create a GitHub Actions workflow file in your repository to send an email when a Branch- create, Merge(PR) & Delete.**
+*Create a GitHub Actions workflow file in your repository to send an email when a Branch- create, Merge(PR) & Delete.*
 
-**In your GitHub repository, create a workflow file in .github/workflows/ (e.g., send-email-on-Branch-notification.yml):**
+*In your GitHub repository, create a workflow file in .github/workflows/ (e.g., send-email-on-Branch-notification.yml):*
 
 
 
 ### 7. Commit and Push the Workflow File:
 
-**Once you add the workflow file, every time a commit is pushed to the specified repo (e.g., Branch-Notification-demo), the GitHub Action will send an email with the details of the commit (message, author, and URL).**
+*Once you add the workflow file, every time a commit is pushed to the specified repo (e.g., Branch-Notification-demo), the GitHub Action will send an email with the details of the commit (message, author, and URL).*
 
 
 
