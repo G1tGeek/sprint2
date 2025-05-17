@@ -42,8 +42,7 @@ Including commit sign-off as a generic CI operation offers several benefits:
 
 ## Workflow 
 
-![CI Workflow with Commit Sign-Off](workflow.png)
-
+![image](https://github.com/user-attachments/assets/72fdebf9-c9cc-447f-9afb-2c53da1f3882)
 
 1. **Developer Commit**: The developer commits code with a mandatory `Signed-off-by` line.
 2. **Pre-Check/Hook**: A Git hook or CI job verifies that each commit contains a valid sign-off.
@@ -75,11 +74,9 @@ Including commit sign-off as a generic CI operation offers several benefits:
 - Script checks commits for `Signed-off-by:` using Git log.
 - Pipeline fails for unsigned commits.
 
-**Outcome**:
+### Step 1
 
-- Contributors are immediately notified to correct commits.
-- Only verified code proceeds to build and deploy stages.
-- Increases compliance and quality control.
+*Go-to [github](www.github.com) and select the repository*
 
 ---
 
