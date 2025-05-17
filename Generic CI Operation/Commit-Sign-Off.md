@@ -3,12 +3,55 @@
 ---
 
 ### Author
-| Created     |  Version   |   Author     |  Modifed   |      Comment      |    Reviewer      |
-|-------------|------------|--------------|------------|-------------------|------------------|
-| 13-05-2025  |  V1        | Yuvraj Singh |            | Internal Review   | Siddharth Pawar  |
-|             |  V2        | Yuvraj Singh |            | L0 Review         | Naveen Haswani |
-|             |  V3        | Yuvraj Singh |            | L1 Review         | Deepak Nishad |
-|             |  V4        | Yuvraj Singh |            | L2 Review         | Ashwani Singh |
+|  Version   |   Author     |  Modifed   |      Comment      |    Reviewer      |
+|------------|--------------|------------|-------------------|------------------|
+|  V1        | Yuvraj Singh |            | Internal Review   | Siddharth Pawar  |
+|  V2        | Yuvraj Singh |            | L0 Review         | Naveen Haswani |
+|  V3        | Yuvraj Singh |            | L1 Review         | Deepak Nishad |
+|  V4        | Yuvraj Singh |            | L2 Review         | Ashwani Singh |
+
+---
+
+## Table of Contents
+
+<details>
+<summary>1. Introduction</summary>
+
+- [Introduction](#introduction)  
+- [What is Commit Sign-Off?](#what-is-commit-sign-off)  
+- [Why Commit Sign-Off in CI?](#why-commit-sign-off-in-ci)
+
+</details>
+
+<details>
+<summary>2. Workflow & Benefits</summary>
+
+- [Workflow](#workflow)  
+- [Advantages of Commit Sign-Off in CI](#advantages-of-commit-sign-off-in-ci)
+
+</details>
+
+<details>
+<summary>3. Proof of Concept</summary>
+
+- [Step 1: Clone the Repository](#step-1)  
+- [Step 2: Make Changes](#step-2)  
+- [Step 3: Commit with Sign-Off](#step-3)  
+- [Step 4: Push to Remote](#step-4)  
+- [Step 5: Confirm the Changes](#step-5)
+
+</details>
+
+<details>
+<summary>4. Best Practices & Wrap-up</summary>
+
+- [Best Practices](#best-practices)  
+- [Conclusion](#conclusion)  
+- [Contact](#contact)  
+- [References](#references)
+
+</details>
+
 
 ---
 
@@ -66,17 +109,38 @@ Including commit sign-off as a generic CI operation offers several benefits:
 
 ## Proof of Concept (POC)
 
-**Scenario**: Enforce commit sign-off in a Jenkins pipeline for a microservice.
-
-**Setup**:
-
-- CI pipeline includes a `verify-signoff` stage.
-- Script checks commits for `Signed-off-by:` using Git log.
-- Pipeline fails for unsigned commits.
-
 ### Step 1
 
-*Go-to [github](www.github.com) and select the repository*
+*Go-to [github](www.github.com). Select the repository for which you want setup commit sign-off and clone it*
+
+![image](https://github.com/user-attachments/assets/06d483ff-1a7d-4a9c-8266-fb75f73aa821)
+
+### Step 2
+
+*Make some changes*
+
+![image](https://github.com/user-attachments/assets/04bc4b7d-375b-46ae-a1df-3d2c280ef5ef)
+
+### Step 3
+
+*Add the files to staging area. Now to commit with sign off use `-s` flag*
+```
+git commit -s -m "It's that simple to create a sign off commit"
+```
+
+![image](https://github.com/user-attachments/assets/ecc23020-c442-4d77-b252-8d3e3b90fbe7)
+
+### Step 4
+
+*Push your changes to remote repository*
+
+![image](https://github.com/user-attachments/assets/f385f4b3-af63-4d88-a0af-d37ad46ec5f7)
+
+### Step 5
+
+*Confirm the changes*
+
+![image](https://github.com/user-attachments/assets/65404d3a-4cdb-4656-b3c1-1c0569703fdc)
 
 ---
 
