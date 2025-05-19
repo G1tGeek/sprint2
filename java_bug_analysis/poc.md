@@ -321,9 +321,12 @@ Among the various tools discussed, **SonarQube** stands out due to its ability t
 
 ## References  
 
-- [SonarQube Official Documentation](https://docs.sonarqube.org/latest/)  
-- [Java SE Development Kit (JDK) Downloads](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)  
-- [Apache Maven Project](https://maven.apache.org/)  
-- [Gradle Build Tool](https://gradle.org/)  
-- [GitHub - Cloning a Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)  
-- [AWS EC2 Security Groups - Managing Inbound Rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#security-group-rules)  
+| Source                                                                                     | Description                                              |
+| ------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| [SonarQube Official Documentation](https://docs.sonarqube.org/latest/)                     | Official guide for configuring and using SonarQube.      |
+| [Java SE Development Kit (JDK) Downloads](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) | Download page for Java Development Kit (JDK 11).         |
+| [Apache Maven Project](https://maven.apache.org/)                                          | Official website for Maven build automation tool.        |
+| [Gradle Build Tool](https://gradle.org/)                                                   | Official site for the Gradle build automation system.    |
+| [GitHub - Cloning a Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) | Documentation on how to clone repositories from GitHub.  |
+| [AWS EC2 Security Groups - Managing Inbound Rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#security-group-rules) | AWS guide for configuring inbound rules in security groups. |
+ 
