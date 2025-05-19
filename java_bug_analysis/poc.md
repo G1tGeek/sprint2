@@ -134,7 +134,7 @@ To get a detailed about bug analysis in java [click here]().
   ```
   sonar.jdbc.username=sonar # line 25
   sonar.jdbc.password=sonar123 # line 26
-  sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube # line 43
+  sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube # line 43
   sonar.web.host=0.0.0.0 # line 100
   ```
 
