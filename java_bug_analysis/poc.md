@@ -11,6 +11,37 @@
 |  V3        | Yuvraj Singh |            | L1 Review         | Deepak Nishad |
 |  V4        | Yuvraj Singh |            | L2 Review         | Ashwani Singh |
 
+## Table of Contents
+
+<details>
+<summary>1. Introduction</summary>
+
+- [Introduction](#introduction)  
+- [What and Why Bug Analysis?](#what-and-why-bug-analysis)  
+
+</details>
+
+<details>
+<summary>2. Steps of Conduct</summary>
+
+- [Prerequisites](#prerequisites)
+- [Install Dependencies](#install-dependencies)
+- [Configuration](#configuration)
+- [Service for SonarQube](#service-for-sonarqube)
+- [Testing the API](#testing-the-api)
+
+</details>
+
+<details>
+<summary>3. Wrap-up</summary>
+
+- [Conclusion](#conclusion)  
+- [Contact Information](#contact-information)  
+- [References](#references)  
+
+</details>
+
+
 ## Introduction
 This document offers a straightforward guide to identifying and addressing bugs in Java code. Implementing systematic bug analysis ensures that developers detect issues early, improve code reliability, and maintain application performance and security.
 
@@ -18,26 +49,26 @@ This document offers a straightforward guide to identifying and addressing bugs 
 
 To get a detailed about bug analysis in java [click here]().
 
-## Prerequisites
+## Steps of Conduct
+
+### Prerequisites
 
 | Dependency   | Minimum Version |
 | ------------ | --------------- |
 | Operating System | Ubuntu 22.04 |
 | CPU    | 2 vCPU  |
-| **Hard Disk   | 25 GB  |
+| Hard Disk   | 25 GB  |
 | RAM           | 4 GB     |
 | Java JDK     | 17+             |
 | PostgreSQL   | Latest Stable   |
 | unzip        | Latest Stable   |
 | SonarQube    | Latest Stable   |
-| SonarScanner | Latest Stable   |
+| SonarScanner | Any Version   |
 | Maven        | 3.6+            |
 | SonarQube | 9000 (open)        |
 | Secure HTTPS web traffic | 443  |       
 | PostgreSQL database access | 5432  | 
 
-
-## Steps of Conduct
 
 ### Install Dependencies
 
@@ -57,6 +88,7 @@ To get a detailed about bug analysis in java [click here]().
   
   ![image](https://github.com/user-attachments/assets/f9a86130-61d8-4bb2-8592-f5991ffe24c2)
 
+
 - **Install unzip**
 
   *[Go to this link](https://github.com/snaatak-Downtime-Crew/Documentation/tree/main/common_stack/operating_system/ubuntu/sop/softwaremanagement#3-Install-a-Software) and follow `3. Install a Software` Package name: unzip*
@@ -66,16 +98,15 @@ To get a detailed about bug analysis in java [click here]().
 - **Install SonarQube**
 
   ```
-  cd /opt
-  sudo wget "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-25.5.0.107428.zip" -O sonarqube.zip
-  sudo unzip sonarqube.zip
-  sudo mv sonarqube-25.5.0.107428 sonarqube
-  sudo chown -R $USER:$USER sonarqube
-  echo "export PATH=$PATH:/opt/sonarqube/bin/linux-x86-64" >> ~/.bashrc
-  source ~/.bashrc
+  sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.3.79811.zip
+  sudo unzip sonarqube-9.9.3.79811.zip
+  sudo mv sonarqube-9.9.3.79811 /opt/sonarqube
+  sudo groupadd sonar
+  sudo useradd -d /opt/sonarqube -g sonar sonar
+  sudo chown sonar:sonar /opt/sonarqube -R
   ```
 
-  ![image](https://github.com/user-attachments/assets/7e440c76-f4b5-4a1b-9240-394116cf7ed1)
+  ![image](https://github.com/user-attachments/assets/4392851d-7266-4b04-b1cb-566618138d65)
 
 - **Install SonarScanner**
 
@@ -84,7 +115,7 @@ To get a detailed about bug analysis in java [click here]().
   sudo wget "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.1.0.4889-linux-x64.zip" -O sonar-scanner.zip
   sudo unzip sonar-scanner.zip
   sudo mv sonar-scanner-7.1.0.4889-linux-x64 sonar-scanner
-  sudo chown -R $USER:$USER sonar-scanner
+  sudo chown -R $USER:$USER sonar
   echo "export PATH=$PATH:/opt/sonar-scanner/bin" >> ~/.bashrc
   source ~/.bashrc
   ```
@@ -101,44 +132,77 @@ To get a detailed about bug analysis in java [click here]().
 
 - **PostgreSQL**-
 
-  > *Access psql terminal*
+  > *Change postgre default password*
 
   ```
-  sudo -u postgres psql
+  sudo passwd postgres
   ```
 
-  ![image](https://github.com/user-attachments/assets/7f1a4fab-a503-4bc0-b3ee-b28fa46d3a60)
+  ![image](https://github.com/user-attachments/assets/cc531230-3c86-4616-b664-e1ace5e2fbeb)
 
-  > *Create user and database forSonarQube*
+  > *Access postgre user*
 
   ```
-  CREATE USER sonar WITH PASSWORD 'sonar123';
+  sudo - postgres
+  ```
+
+  ![image](https://github.com/user-attachments/assets/4e13ff74-6e2f-4cc9-8cbf-54c36a3500e4)
+
+  > *Create a user sonar*
+
+  ```
+  createuser sonar
+  ```
+
+  ![image](https://github.com/user-attachments/assets/57a7c771-e5bb-4aea-9b18-612f7f5d302e)
+
+  > *Log in to PostgreSQL and create database*
+
+  ```
+  psql
+  
+  ALTER USER sonar WITH ENCRYPTED PASSWORD 'sonar';
   CREATE DATABASE sonarqube OWNER sonar;
+  GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
   ```
   
-  ![image](https://github.com/user-attachments/assets/acc14c05-71e1-49fd-8d86-0b00eb909b21)
+  ![image](https://github.com/user-attachments/assets/6304fe01-5ba1-4f71-88c0-8f596c267655)
 
   > *Quit*
   
   ```
   \q
+  exit
   ```
 
-  ![image](https://github.com/user-attachments/assets/28c9b0c1-f5b3-4e98-8f6b-f41857ba6aef)
-
+  ![image](https://github.com/user-attachments/assets/4d8c2532-d319-4451-b03c-0ce0c5f6870d)
 
 - **SonarQube**
 
-  > *Edit the configuration file at `/opt/sonarqube/conf/sonar.properties and update the database settings`*
+  > *Edit the configuration file at `/opt/sonarqube/conf/sonar.properties` and add these database settings`*
   
   ```
-  sonar.jdbc.username=sonar # line 25
-  sonar.jdbc.password=sonar123 # line 26
-  sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube # line 43
-  sonar.web.host=0.0.0.0 # line 100
+  sonar.jdbc.username=sonar
+  sonar.jdbc.password=sonar
+  sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
   ```
 
-  ![image](https://github.com/user-attachments/assets/ad0050e0-6a00-4af4-8be9-4b13510fe6fd)
+  ![image](https://github.com/user-attachments/assets/701c59e6-65c7-4a3c-a240-4e1a1a2ed989)
+
+  > *Modify Kernel System Limits at `/etc/sysctl.conf`*
+    ```
+    vm.max_map_count=262144
+    fs.file-max=65536
+    ulimit -n 131072
+    ulimit -u 8192
+    ```
+
+    ![image](https://github.com/user-attachments/assets/1f901c3c-5994-4c9f-9a29-91d78aec6c35)
+
+  > *Reboot the system to apply the changes*
+  ```
+  sudo reboot
+  ```
 
 - **SonarScanner**
 
@@ -150,44 +214,100 @@ To get a detailed about bug analysis in java [click here]().
 
   ![image](https://github.com/user-attachments/assets/37dc2953-8948-4b2e-9361-d57f892e43d6)
 
-### Conducting the Tests  
+
+### Service for SonarQube
+
+*Create a file at `/etc/systemd/system/sonarqube.service` and add the below block*
+
+```
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=sonar
+Group=sonar
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+StandardOutput=journal
+LimitNOFILE=131072
+LimitNPROC=8192
+TimeoutStartSec=5
+Restart=always
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+```
+
+*Start the server*
+
+```
+sudo systemctl daemon-reload
+sudo systemctl start sonarqube
+sudo systemctl enable sonarqube
+```
+
+![image](https://github.com/user-attachments/assets/5aaef7c9-740d-4505-8094-8459f5d66fb6)
+
+### Testing the API  
 
 *Clone your [Salary API](https://github.com/OT-MICROSERVICES/salary-api.git) project repository from GitHub*
 
 ![image](https://github.com/user-attachments/assets/21c5c5ae-14d0-4d86-b769-8f5e47a305a8)
 
+
 - **Start SonarQube Server**  
 
-  > *Launch the SonarQube server and ensure port 9000 is accessible.*
+ > *Go-to SonarQube server at `<public-ip>:9000`*
 
-  ```
-  sonar.sh start
-  ```
+  ![image](https://github.com/user-attachments/assets/ab8a3843-75d8-42de-96da-033bc5658014)
 
-  
 - **Generate SonarQube Authentication Token**  
 
-*Log into SonarQube, and create an authentication token for scanning.*
+ > *Create an authentication token for scanning. `My Account > Security`*
 
-### Configure the Project for SonarQube  
+ ![image](https://github.com/user-attachments/assets/33f5a2ab-b581-4532-a846-f211dbff1137)
 
-*Add SonarQube plugin configuration to your Maven or Gradle build files.*
+- **Configure the Project for SonarQube**
 
-### Run Sonar Scanner  
+ > *Add SonarQube plugin configuration to Salary-API pom.xml.*
+ 
+ ```
+ <plugin>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.9.1.2184</version>
+ </plugin>
+ ```
 
-*Execute SonarScanner to analyze the code and send results to SonarQube.*
+ ![image](https://github.com/user-attachments/assets/f4f27777-aefc-422f-a8ac-a881611569c7)
 
-### Analyze SonarQube Dashboard  
 
-*Review bugs, vulnerabilities, and other code quality metrics in the dashboard.*
+- **Run Sonar Scanner**  
 
-### Prioritize and Fix Issues  
+ > *Execute SonarScanner to analyze the code and send results to SonarQube.*
+ ```
+ mvn clean verify -DskipTests sonar:sonar \
+  -Dsonar.projectKey=salary-api \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqa_d454c3fc62931070e4d56d27884ef13519fe5d0e # Your token generated in SonarQube
+ ```
 
-*Address critical bugs and refactor code as needed.*
+- **Analyze SonarQube Dashboard**  
 
-### Document and Share Findings  
+ > *Review bugs, vulnerabilities, and other code quality metrics in the dashboard.*
 
-*Summarize the bug analysis results for the team.*
+ ![image](https://github.com/user-attachments/assets/e8194959-579a-4caa-8512-f448615f5083)
+
+- **Prioritize and Fix Issues**  
+
+ > *Address critical bugs and refactor code as needed.*
+
+- **Document and Share Findings**  
+
+ > *Summarize the bug analysis results for the team.*
 
 
 ## Conclusion  
