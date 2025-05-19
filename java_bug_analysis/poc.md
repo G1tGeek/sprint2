@@ -22,13 +22,19 @@ To get a detailed about bug analysis in java [click here]().
 
 | Dependency   | Minimum Version |
 | ------------ | --------------- |
+| Operating System | Ubuntu 22.04 |
+| CPU    | 2 vCPU  |
+| **Hard Disk   | 25 GB  |
+| RAM           | 4 GB     |
 | Java JDK     | 17+             |
 | PostgreSQL   | Latest Stable   |
 | unzip        | Latest Stable   |
 | SonarQube    | Latest Stable   |
 | SonarScanner | Latest Stable   |
 | Maven        | 3.6+            |
-| Network Port | 9000 (open)     |
+| SonarQube | 9000 (open)        |
+| Secure HTTPS web traffic | 443  |       
+| PostgreSQL database access | 5432  | 
 
 
 ## Steps of Conduct
