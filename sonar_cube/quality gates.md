@@ -1,11 +1,11 @@
 # SonarQube | Quality Gates
 
-![Logo](https://www.sonarsource.com/images/logos/sonarqube-logo.png)
+![image](https://github.com/user-attachments/assets/962339af-0a70-4c9c-8f75-966720921102)
 
 ### Author
-| Created     | Version | Author        | Modified    | Comment           | Reviewer         |
-|-------------|---------|---------------|-------------|--------------------|------------------|
-| 19-05-2025  | V1.0    | Yuvraj Singh  | --          | Initial Draft      | Siddharth Pawar  |
+|  Version | Author        | Modified    | Comment           | Reviewer         |
+|---------|---------------|-------------|--------------------|------------------|
+| V1.0    | Yuvraj Singh  | --          | Internal Review      | Siddharth Pawar  |
 
 ---
 
@@ -24,6 +24,9 @@
 <summary>2. Quality Gates in Depth</summary>
 
 - [Workflow](#workflow-diagram)  
+- [Identification of Quality Gates](#identification-of-quality-gates)  
+- [Default Quality Gates](#default-quality-gates)  
+- [Custom Quality Gates](#custom-quality-gates)  
 - [Advantages](#advantages)  
 - [Best Practices](#best-practices)
 
@@ -49,20 +52,6 @@ This document explains the concept of **Quality Gates** in **SonarQube**, a vita
 ## What is a Quality Gate?
 
 A **Quality Gate** in SonarQube is a set of predefined conditions that code must meet to be considered acceptable. These gates assess the results of a code scan and determine whether the code passes or fails the quality check.
-
-### Default Conditions Often Include:
-
-| Metric                       | Condition                      |
-|-----------------------------|--------------------------------|
-| New Bugs                    | 0                              |
-| New Vulnerabilities         | 0                              |
-| New Code Coverage           | ≥ 80%                          |
-| New Code Duplications       | ≤ 3%                           |
-| Maintainability Rating      | A                             |
-| Security Rating             | A                             |
-| Reliability Rating          | A                             |
-
-If any condition is not met, the Quality Gate status becomes **Failed**.
 
 ---
 
@@ -92,6 +81,67 @@ flowchart TD
 
 ---
 
+## Identification of Quality Gates
+
+In **SonarQube**, Quality Gates are identified and managed at the **project** or **portfolio** level.
+
+You can find the applied Quality Gate by navigating to:
+
+```
+Project Settings → Quality Gate
+```
+
+- The **status** (`Passed` / `Failed`) of a Quality Gate is displayed after each scan on the **project dashboard**.
+- If a gate is **not met**, SonarQube provides detailed **metrics and conditions** that triggered the failure.
+
+---
+
+## Default Quality Gates
+
+SonarQube includes a built-in Quality Gate called **"Sonar way"**, which consists of essential rules for evaluating new code. This gate promotes best practices and is suitable for most projects.
+
+### **Sonar way – Default Conditions:**
+
+| Metric                     | Condition     |
+|----------------------------|---------------|
+| New Bugs                   | 0             |
+| New Vulnerabilities        | 0             |
+| New Code Coverage          | ≥ 80%         |
+| Code Duplication           | ≤ 3%          |
+| Maintainability Rating     | A             |
+| Reliability Rating         | A             |
+| Security Rating            | A             |
+
+This default gate encourages clean coding practices right from the start of a project.
+
+---
+
+## Custom Quality Gates
+
+Custom Quality Gates allow teams to define their **own criteria** based on project needs, coding practices, and risk profiles. They are particularly useful in scenarios such as:
+
+- Teams with **different risk tolerances**
+- Projects with a **legacy codebase**, where strict defaults are impractical
+- Need to monitor **project-specific metrics** like custom rule violations or technical debt ratio
+
+---
+
+### Steps to Create a Custom Quality Gate
+
+1. Go to:  
+   `Administration → Quality Gates`
+2. Click on **“Create”**
+3. Provide a **name** for the new Quality Gate
+4. **Add conditions** such as:
+   - Minimum coverage percentage
+   - Code smell thresholds
+   - Maximum allowed duplications
+5. **Assign** the newly created gate to your project(s)
+
+---
+
+## Advantages
+
 | **Advantage**                   | **Description**                                                                                |
 | ------------------------------- | ---------------------------------------------------------------------------------------------- |
 | **Automated Quality Control**   | Enforces predefined code quality standards automatically during analysis.                      |
@@ -103,6 +153,8 @@ flowchart TD
 | **Supports Multiple Languages** | Quality gates work across many languages, including Java, Python, JavaScript, and more.        |
 
 ---
+
+## Best Practices
 
 | **Best Practice**                   | **Description**                                                                                 |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -122,9 +174,13 @@ From the Quality Gates analysis of `Salayr API`, I found that the code needs som
 
 ---
 
-## References
+| Name          | Email Address                              |
+|---------------|--------------------------------------------|
+| Yuvraj Singh  | yuvraj.singh.snaatak@mygurukulam.co         |
 
-### References
+---
+
+## References
 
 - [SonarQube Documentation – Quality Gates](https://docs.sonarsource.com/sonarqube/latest/project-administration/quality-gates/)
 - [SonarQube Rules and Quality Profiles](https://docs.sonarsource.com/sonarqube/latest/quality-profiles/rules/)
