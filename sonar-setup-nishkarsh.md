@@ -17,43 +17,17 @@
 </details>
 
 <details>
-<summary>2. Installation</summary>
+<summary>2. Setup</summary>
 
 - [Install Dependencies](#install-dependencies)  
-  - [Install Java](#install-java)  
-  - [Install PostgreSQL](#install-postgresql)  
-  - [Install unzip](#install-unzip)  
-  - [Install SonarQube](#install-sonarqube)  
-  - [Install SonarScanner](#install-sonarscanner)  
-
-</details>
-
-<details>
-<summary>3. Configuration</summary>
-
 - [Configuration](#configuration)  
-  - [Configure PostgreSQL](#postgresql)  
-  - [Configure SonarQube](#sonarqube)  
-  - [Configure SonarScanner](#sonarscanner)  
+- [Service for SonarQube](#service-for-sonarqube)
+- [Check Working](#check-working)
 
 </details>
 
 <details>
-<summary>4. Service Setup</summary>
-
-- [Service for SonarQube](#service-for-sonarqube)  
-
-</details>
-
-<details>
-<summary>5. Verification</summary>
-
-- [Check Working](#check-working)  
-
-</details>
-
-<details>
-<summary>6. Support</summary>
+<summary>3. Wrap-up</summary>
 
 - [Contact Information](#contact-information)  
 - [References](#references)  
