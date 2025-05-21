@@ -1,9 +1,12 @@
 # POC to setup SonarQube
 
-| Created     | Last Updated | Version | Author          | Comment         | Reviewer |
-|-------------|--------------|---------|-----------------|-----------------|----------|
-| 12-05-2025  |  12-05-2025  | V1      | Nishkarsh Kumar | Internal Review | Pritam   |
+![image](https://github.com/user-attachments/assets/95e97912-c705-46cc-b3a2-84adab85bd2f)
 
+## Author
+
+| Last Updated | Version | Author          | Comment         | Reviewer |
+|--------------|---------|-----------------|-----------------|----------|
+|    | V1      | Nishkarsh Kumar | Internal Review | Pritam   |
 
 
 ## Table of Contents
