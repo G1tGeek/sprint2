@@ -13,45 +13,45 @@
 
 <details><summary>1. Introduction</summary>
 
-- Introduction  
-- Purpose of this Infrastructure  
+- [Introduction](#introduction)  
+- [Purpose of this Infrastructure](#purpose-of-this-infrastructure)  
 
 </details>
 
 <details><summary>2. Pre-requisites</summary>
 
-- Tools and Accounts Required  
-- Knowledge Requirements  
+- [Tools and Accounts Required](#tools-and-accounts-required)  
+- [Knowledge Requirements](#knowledge-requirements)  
 
 </details>
 
 <details><summary>3. Infrastructure Diagram</summary>
 
-- Infra Diagram  
+- [Infra Diagram](#infrastructure-diagram)  
 
 </details>
 
 <details><summary>4. Infrastructure Description</summary>
 
-- Virtual Network Setup  
-- Subnet Structure  
-- Instance Configuration  
-- DNS & Load Balancing  
+- [Virtual Network Setup](#virtual-network-setup) 
+- [Subnet Structure](#subnet-structure)  
+- [Instance Configuration](#instance-configuration)  
+- [Load Balancing and DNS](#load-balancing-and-dns)  
 
 </details>
 
 <details><summary>5. Security Groups and NACL</summary>
 
-- Security Group Rules  
-- Network ACL Rules  
+- [Security Group Rules](#security-group-rules)  
+- [Network ACL Rules](#network-acl-rules)  
 
 </details>
 
 <details><summary>6. Wrap-Up</summary>
 
-- Conclusion  
-- Contact Information  
-- References  
+- [Conclusion](#conclusion)  
+- [Contact Information](#contact-information)
+- [References](#references) 
 
 </details>
 
@@ -65,7 +65,6 @@ This document outlines the design, components, and security considerations for a
 - To enable smooth integration and deployment of code using CI/CD pipelines.  
 - To maintain secure and structured access control using security groups and network ACLs.  
 - To support load-balanced and fault-tolerant application services.  
-
 
 ### Tools and Accounts Required
 
@@ -83,26 +82,9 @@ This document outlines the design, components, and security considerations for a
 - Terraform scripting and module use  
 - Domain setup and Route53 configuration  
 
-## 3. Infrastructure Diagram
+## Infrastructure Diagram
 
-```mermaid
-graph TD
-    A[VPC (10.0.0.0/16)]
-    A --> B[Public Subnet (10.0.1.0/24)]
-    A --> C[Application Subnet (10.0.2.0/24)]
-    A --> D[Middleware Subnet (10.0.3.0/24)]
-    A --> E[Database Subnet (10.0.4.0/24)]
-
-    B --> F[Nginx EC2 (with DNS)]
-    C --> G[App Server EC2 (Node.js)]
-    D --> H[Kafka Broker EC2]
-    E --> I[MongoDB EC2]
-
-    F --> G
-    G --> H
-    H --> I
-```
-
+![image](https://github.com/user-attachments/assets/ccae11dd-e595-4b79-9df8-8c7bf565ecc7)
 
 
 ### Virtual Network Setup
@@ -129,7 +111,7 @@ graph TD
 | Kafka Broker  | Ubuntu 22.04  | t2.medium      | 9092             |
 | MongoDB       | Ubuntu 22.04  | t2.small       | 27017            |
 
-### DNS & Load Balancing
+### Load Balancing and DNS
 
 - **Nginx** acts as a reverse proxy, routing requests to internal services based on port:  
   - `nginx.opstree.com:8080` → App Server  
