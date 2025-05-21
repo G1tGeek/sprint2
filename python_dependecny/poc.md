@@ -47,7 +47,7 @@ This document provides a step-by-step guide to perform dependency vulnerability 
 
 ## What and Why Dependency Scanning?
 
-Dependency scanning involves analyzing a project's external libraries to detect known vulnerabilities. Tools like `pip-audit` utilize vulnerability databases to identify insecure packages, enabling developers to update or replace them before they can be exploited.
+[Click here]() for a detailed and informative guide on dependency scanning with python.
 
 ## Steps of Conduct
 
