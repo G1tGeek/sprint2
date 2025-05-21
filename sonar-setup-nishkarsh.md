@@ -239,5 +239,5 @@ sudo systemctl enable sonarqube
 
 | Title                          | Link                                                                 |  
 |--------------------------------|----------------------------------------------------------------------|  
-| GitHub Docs - Enabling 2FA       | [Visit](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa) |  
-| GitHub Docs - Creating a PAT (Classic)                  | [Visit](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) |  
+| [SonarQube Official Documentation](https://docs.sonarqube.org/latest/)                     | Official guide for configuring and using SonarQube.      |
+|  [Install SonarQube and Sonar-scanner](https://medium.com/@rahmanazhar/sonarqube-installation-on-ubuntu-20-04-4a47255ffb47)     | Medium blog on SonarQube install and configuration  |
